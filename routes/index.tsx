@@ -45,19 +45,19 @@ export default function Home({ url }: { url: URL }) {
         @media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
       `}
       </style>
-      <main class="flex-grow">
+      <main class="flex-grow flex flex-col">
         <h1 class="text-2xl font-bold text-center my-6">
           Text to Limited HTML Converter
         </h1>
-        <div class="flex flex-col md:flex-row mx-4 gap-4">
+        <div class="flex flex-col md:flex-row mx-4 gap-4 flex-grow">
           <TextInput
             value={inputText}
             placeholder="Enter text here"
-            className="flex-1 md:w-1/2 h-[calc(100vh-12rem)]"
+            className="flex-1 md:w-1/2 h-[calc(100vh-16rem)] md:h-auto"
           />
           <LimitedHtmlDisplay
             text={inputText}
-            className="flex-1 md:w-1/2 h-[calc(100vh-12rem)]"
+            className="flex-1 md:w-1/2 h-[calc(100vh-16rem)] md:h-auto"
             placeholder="Converted text will be here"
           />
         </div>
