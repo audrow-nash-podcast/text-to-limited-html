@@ -9,23 +9,24 @@ basic formatting into limited HTML. It's designed to offer a safe way to allow
 user-generated content with some formatting options without exposing the system
 to the risks associated with full HTML input.
 
+## Features
+
+- Text input area for entering content
+- Real-time conversion of input text to limited HTML
+- Display area showing the converted HTML output
+- Copy to clipboard functionality for the converted HTML
+- URL parameter support for sharing converted text
+- API endpoint for programmatic conversion
+
 ## How It Works
 
 The application uses the Fresh framework with Deno and includes the following
-key features:
+conversion process:
 
-1. Text input area where users can enter their content.
-2. Real-time conversion of the input text to limited HTML.
-3. Display area showing the converted HTML output.
-4. Copy to clipboard functionality for the converted HTML.
-5. URL parameter support for sharing converted text.
-
-The conversion process includes:
-
-- Escaping HTML characters to prevent XSS attacks.
-- Converting newlines to `<br>` tags.
-- Converting text between asterisks (*) to bold using `<strong>` tags.
-- Converting text between underscores (_) to italic using `<em>` tags.
+- Escaping HTML characters to prevent XSS attacks
+- Converting newlines to `<br>` tags
+- Converting text between asterisks (*) to bold using `<strong>` tags
+- Converting text between underscores (_) to italic using `<em>` tags
 
 ## Getting Started
 
@@ -37,9 +38,7 @@ https://deno.land/manual/getting_started/installation
 ### Running the Project Locally
 
 1. Clone the repository to your local machine.
-
 2. Navigate to the project directory.
-
 3. Start the project by running:
 
    ```
@@ -69,6 +68,20 @@ To run tests:
 ```
 deno task test
 ```
+
+## API Usage
+
+You can use the API endpoint to convert text programmatically:
+
+POST to `/api/convert` with a JSON body:
+
+```json
+{
+  "text": "Your text here"
+}
+```
+
+The response will contain the converted HTML.
 
 ## Contributing
 
