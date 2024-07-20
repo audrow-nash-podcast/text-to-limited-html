@@ -1,5 +1,7 @@
 # Limited HTML Converter
 
+[![Deno CI](https://github.com/audrow-nash-podcast/text-to-limited-html/actions/workflows/ci.yaml/badge.svg)](https://github.com/audrow-nash-podcast/text-to-limited-html/actions/workflows/ci.yaml)
+
 ## Motivation
 
 This project provides a simple web application that converts plain text with
