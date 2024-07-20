@@ -28,7 +28,8 @@ Deno.test("convertToLimitedHtml", async (t) => {
 
   await t.step("handles multiple formatting in one string", () => {
     const input = "Hello *bold* and _italic_ and\nnew line";
-    const expected = "Hello <strong>bold</strong> and <em>italic</em> and<br>new line";
+    const expected =
+      "Hello <strong>bold</strong> and <em>italic</em> and<br>new line";
     assertEquals(convertToLimitedHtml(input), expected);
   });
 });
