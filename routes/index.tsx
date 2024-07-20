@@ -1,9 +1,12 @@
 import { useSignal } from "@preact/signals";
 import TextInput from "../islands/TextInput.tsx";
 import LimitedHtmlDisplay from "../islands/LimitedHtmlDisplay.tsx";
+import { convertFromLimitedHtml } from "../src/convertLimitedHtml.ts";
 
-export default function Home() {
-  const inputText = useSignal("");
+export default function Home({ url }: { url: URL }) {
+  const searchParams = new URLSearchParams(url.search);
+  const initialText = convertFromLimitedHtml(searchParams.get("text") || "");
+  const inputText = useSignal(initialText);
 
   return (
     <div class="font-sans text-gray-900 flex flex-col min-h-screen">
@@ -15,11 +18,11 @@ export default function Home() {
           <TextInput
             value={inputText}
             placeholder="Enter text here"
-            className="flex-1 h-[calc(100vh-12rem)]"
+            className="flex-1 md:w-1/2 h-[calc(100vh-12rem)]"
           />
           <LimitedHtmlDisplay
             text={inputText}
-            className="flex-1 h-[calc(100vh-12rem)]"
+            className="flex-1 md:w-1/2 h-[calc(100vh-12rem)]"
             placeholder="Converted text will be here"
           />
         </div>

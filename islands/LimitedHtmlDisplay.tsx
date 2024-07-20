@@ -1,5 +1,5 @@
-import { Signal, useSignal } from "@preact/signals";
-import { convertToLimitedHtml } from "../src/convertToLimitedHtml.ts";
+import { Signal, useSignal, useSignalEffect } from "@preact/signals";
+import { convertToLimitedHtml } from "../src/convertLimitedHtml.ts";
 
 interface LimitedTextDisplayProps {
   text: Signal<string>;
@@ -23,6 +23,19 @@ export default function LimitedHtmlDisplay({
       }, 3000);
     });
   };
+
+  useSignalEffect(() => {
+    const convertedText = convertToLimitedHtml(text.value);
+    const url = new URL(window.location.href);
+
+    if (convertedText.trim()) {
+      url.searchParams.set("text", convertedText);
+    } else {
+      url.searchParams.delete("text");
+    }
+
+    window.history.replaceState({}, "", url.toString());
+  });
 
   return (
     <div class={`relative ${className}`}>
