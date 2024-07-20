@@ -23,12 +23,12 @@ export default function TextInput({ value, placeholder = "", className = "" }: T
   };
 
   return (
-    <div className="relative h-full">
+    <div className="relative h-full flex flex-col">
       <textarea
         value={value}
         onInput={handleChange}
         placeholder={placeholder}
-        className={`w-full h-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none ${className}`}
+        className={`flex-grow w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none ${className}`}
       />
       <button
         onClick={handlePaste}

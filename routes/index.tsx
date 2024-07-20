@@ -6,17 +6,17 @@ export default function Home() {
   const inputText = useSignal("");
 
   return (
-    <div class="font-sans text-gray-900 flex flex-col min-h-screen">
+    <div class="font-sans text-gray-900 flex flex-col h-screen">
       <h1 class="text-2xl font-bold text-center my-6">Text to Limited HTML Converter</h1>
-      <div class="flex flex-col md:flex-row flex-grow">
-        <div class="w-full md:w-1/2 p-4">
+      <div class="flex flex-col md:flex-row flex-grow overflow-hidden">
+        <div class="w-full md:w-1/2 p-4 h-[calc(50vh-4rem)] md:h-auto">
           <TextInput
             value={inputText}
             placeholder="Enter text here"
             className="w-full h-full"
           />
         </div>
-        <div class="w-full md:w-1/2 p-4">
+        <div class="w-full md:w-1/2 p-4 h-[calc(50vh-4rem)] md:h-auto">
           <LimitedHtmlDisplay
             text={inputText}
             className="w-full h-full"

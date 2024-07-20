@@ -25,8 +25,8 @@ export default function LimitedHtmlDisplay({
   };
 
   return (
-    <div class={`relative w-full h-full ${className}`}>
-      <div class="absolute top-2 right-2 flex items-center">
+    <div class={`relative flex flex-col ${className}`}>
+      <div class="absolute top-2 right-2 flex items-center z-10">
         {showToast.value && (
           <div class="mr-2 bg-gray-800 text-white px-2 py-1 rounded-md text-sm">
             Copied!
@@ -38,15 +38,15 @@ export default function LimitedHtmlDisplay({
           title="Copy to clipboard"
           disabled={!text.value.trim()}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
-            <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z" />
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
           </svg>
         </button>
       </div>
 
       <div
-        class={`w-full h-full p-3 border border-gray-300 rounded-md overflow-auto bg-gray-50 ${className}`}
+        class="flex-grow w-full h-full p-3 border border-gray-300 rounded-md overflow-auto bg-gray-50"
       >
         {text.value.trim() ? (
           convertToLimitedHtml(text.value)
