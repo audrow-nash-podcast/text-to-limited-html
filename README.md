@@ -9,12 +9,14 @@ to the risks associated with full HTML input.
 
 ## How It Works
 
-The application uses a Fresh framework with Deno and includes the following key
-features:
+The application uses the Fresh framework with Deno and includes the following
+key features:
 
 1. Text input area where users can enter their content.
 2. Real-time conversion of the input text to limited HTML.
 3. Display area showing the converted HTML output.
+4. Copy to clipboard functionality for the converted HTML.
+5. URL parameter support for sharing converted text.
 
 The conversion process includes:
 
@@ -57,10 +59,20 @@ Key files:
 - `routes/index.tsx`: Main page component
 - `islands/TextInput.tsx`: Interactive text input component
 - `islands/LimitedHtmlDisplay.tsx`: Component to display converted HTML
-- `src/convertToLimitedHtml.ts`: Core function for text to HTML conversion
+- `src/convertLimitedHtml.ts`: Core functions for text to HTML conversion and
+  vice versa
 
 To run tests:
 
 ```
 deno task test
 ```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for
+details.
