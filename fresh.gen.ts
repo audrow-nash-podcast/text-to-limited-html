@@ -4,6 +4,7 @@
 
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
+import * as $api_convert from "./routes/api/convert.ts";
 import * as $index from "./routes/index.tsx";
 import * as $LimitedHtmlDisplay from "./islands/LimitedHtmlDisplay.tsx";
 import * as $TextInput from "./islands/TextInput.tsx";
@@ -13,6 +14,7 @@ const manifest = {
   routes: {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
+    "./routes/api/convert.ts": $api_convert,
     "./routes/index.tsx": $index,
   },
   islands: {
