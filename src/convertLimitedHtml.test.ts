@@ -35,6 +35,24 @@ Deno.test("convertToLimitedHtml", async (t) => {
       "Hello <strong>bold</strong> and <em>italic</em> and<br>new line";
     assertEquals(convertToLimitedHtml(input), expected);
   });
+
+  await t.step("adds parentheses to time codes", () => {
+    const input = "0:00 Start\n1:36 Introduction";
+    const expected = "(0:00) Start<br>(1:36) Introduction";
+    assertEquals(convertToLimitedHtml(input), expected);
+  });
+
+  await t.step("handles longer time codes", () => {
+    const input = "42:33 Section One\n1:02:06 Section Two";
+    const expected = "(42:33) Section One<br>(1:02:06) Section Two";
+    assertEquals(convertToLimitedHtml(input), expected);
+  });
+
+  await t.step("handles multiple time codes in one string", () => {
+    const input = "0:00 Start\n1:36 Middle\n42:33 End";
+    const expected = "(0:00) Start<br>(1:36) Middle<br>(42:33) End";
+    assertEquals(convertToLimitedHtml(input), expected);
+  });
 });
 
 Deno.test("convertFromLimitedHtml", async (t) => {

@@ -4,6 +4,9 @@ export function convertToLimitedHtml(input: string): string {
   // Escape HTML characters
   let html = escape(input);
 
+  // Add parentheses around time codes (M:SS, MM:SS, H:MM:SS)
+  html = html.replace(/^(\d+:\d+(?::\d+)?)/gm, "($1)");
+
   // Replace newlines with <br> tags
   html = html.replace(/\n/g, "<br>");
 
@@ -28,6 +31,9 @@ export function convertFromLimitedHtml(html: string): string {
 
   // Convert <em> tags back to underscores
   output = output.replace(/<em>(.*?)<\/em>/g, "_$1_");
+
+  // Remove parentheses from time codes
+  output = output.replace(/^(\d+:\d+(?::\d+)?)/g, "($1)");
 
   return output;
 }
